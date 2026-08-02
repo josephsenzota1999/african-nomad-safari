@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>National Parks & Reserves - Discover East Africa - African Nomad Safari</title>
+  <meta name="description" content="Explore East Africa's top safari destinations. Filter national parks by region. Discover Serengeti, Ngorongoro, highland peaks, Tarangire, Masai Mara, and coastal Saadani.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Google Translate -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    .goog-te-spinner { display: none; }
+    .goog-te-combo { 
+      background-color: transparent !important;
+      border: none !important;
+      font-family: inherit !important;
+      color: #555 !important;
+      cursor: pointer !important;
+      padding: 4px 8px !important;
+      border-radius: 4px !important;
+      transition: background-color 0.3s ease !important;
+    }
+    .goog-te-combo:hover {
+      background-color: #f0f0f0 !important;
+    }
+    .goog-te-menu-frame { box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-left">
+        <div class="rating-badge">
+          <!-- TripAdvisor Star Svg -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431 8.199 1.191-5.914 5.88 1.398 8.174L12 18.897l-7.351 3.86 1.398-8.174-5.914-5.88 8.199-1.191z"/></svg>
+          <span><strong>4.9/5</strong> TripAdvisor (4,550+ reviews)</span>
+        </div>
+        <div class="rating-badge">
+          <!-- Google Svg -->
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V13.4h6.887c-.28 1.545-1.782 4.545-6.887 4.545-4.41 0-8.01-3.655-8.01-8.16s3.6-8.16 8.01-8.16c2.51 0 4.19 1.05 5.15 1.98l2.45-2.39C18.17 1.74 15.42.94 12.24.94 6.03.94.99 5.98.99 12.19s5.04 11.25 11.25 11.25c6.48 0 10.8-4.56 10.8-11 0-.74-.08-1.3-.18-1.77H12.24z"/></svg>
+          <span><strong>4.8/5</strong> Google Reviews</span>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <div class="language-selector">
+          <select id="language-select" class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="ru">Русский</option>
+            <option value="zh-CN">中文</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+          </select>
+        </div>
+        <a href="tel:+15186341139" class="contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+1 518 634 1139</span>
+        </a>
+        <a href="contact.html" class="contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Get in touch</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN HEADER & MENU NAVIGATION -->
+  <header class="main-header" id="main-header">
+    <div class="container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="images/logo.jpeg" alt="African Nomad Safari Logo" id="logo-img">
+      </a>
+      
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <div class="nav-item">
+          <a href="tours.html" class="nav-link">Safari Tours</a>
+        </div>
+        <div class="nav-item">
+          <a href="destinations.html" class="nav-link">Destinations</a>
+        </div>
+        <div class="nav-item">
+          <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </div>
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact Us</a>
+        </div>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn-red">Enquire Now</a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+        &#9776;
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. JUMBOTRON HERO -->
+  <section class="ts-jumbotron relative" style="background-image: url('images/destinations_hero.png');">
+    <div class="custom-bg-gradient-black"></div>
+    <div class="container ts-jumbotron-wrapper">
+      <div class="ts-jumbotron-inner">
+        <h1>National Parks</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BREADCRUMBS -->
+  <div class="container breadcrumbs-container">
+    <ul class="breadcrumbs-list">
+      <li><a href="index.html">Home</a></li>
+      <li class="breadcrumb-separator">&gt;</li>
+      <li class="active">National Parks</li>
+    </ul>
+  </div>
+
+  <!-- 5. MAIN CONTENT CATALOG & FILTER SIDEBAR -->
+  <div class="container py-8">
+    
+    <div class="destinations-layout-grid">
+      
+      <!-- A. Left Column - Filters Sidebar -->
+      <aside class="sidebar-sticky">
+        
+        <div class="filter-sidebar-box">
+          <h3>Filter by Region</h3>
+          <div class="filter-group">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox-input region-filter" value="northern">
+              <span>Northern Parks</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox-input region-filter" value="southern">
+              <span>Southern Parks</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox-input region-filter" value="eastern">
+              <span>Eastern Parks</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox-input region-filter" value="other">
+              <span>Other Parks &amp; Places</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- customized Travel proposal CTA -->
+        <div class="cta-red-card">
+          <h3>Tailor-Made Safari</h3>
+          <p>Don't want to choose? Tell our specialists your interests, and we will build a custom package linking your favorite parks together!</p>
+          <a href="contact.html" class="btn btn-yellow">Design My Safari</a>
+        </div>
+
+      </aside>
+
+      <!-- B. Right Column - Catalog List -->
+      <main id="parks-catalog-wrapper">
+        
+        <!-- Park 1: Serengeti -->
+        <article class="park-article-card" data-region="northern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Northern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/serengeti_wildlife.png" alt="Elephants in Serengeti National Park">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Serengeti National Park</h3>
+              <p class="park-card-desc">Serengeti National Park is Africa’s most famous park, hosting the largest concentration of migratory game on the continent and the spectacular Great Wildebeest Migration. With over 14,750 square kilometers of endless plains, it offers world-class viewing of predators (lions, leopards, cheetahs) and giant herds tracking rain patterns year-round.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Safaris in Serengeti</a>
+          </div>
+        </article>
+
+        <!-- Park 2: Ngorongoro -->
+        <article class="park-article-card" data-region="northern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Northern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/hero_safari.png" alt="Lions on Crater floor in Ngorongoro Crater">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Ngorongoro Conservation Area</h3>
+              <p class="park-card-desc">The Ngorongoro Crater is a UNESCO World Heritage site and the world’s largest intact volcanic caldera. Often called the 'Eighth Wonder of the World', its steep 600-meter walls enclose a fertile floor packed with over 25,000 large mammals, including prides of lions, black rhinos, hippos, and giant elephant bulls feeding in marshes.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Crater Tours</a>
+          </div>
+        </article>
+
+        <!-- Park 3: Highland Peaks -->
+        <article class="park-article-card" data-region="northern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Northern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/kilimanjaro_trek.png" alt="Highland peak rising above clouds">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Highland Peaks</h3>
+              <p class="park-card-desc">At high altitude, East Africa offers some of the world’s most memorable summit adventures. Trekking through dramatic landscapes from forest to alpine zones delivers a bucket-list experience that combines challenge, scenery, and unforgettable views.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">Explore Routes</a>
+          </div>
+        </article>
+
+        <!-- Park 4: Tarangire -->
+        <article class="park-article-card" data-region="northern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Northern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/guide_expert.png" alt="Baobab trees and elephants in Tarangire">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Tarangire National Park</h3>
+              <p class="park-card-desc">Tarangire National Park is famous for its iconic, ancient baobab trees and having the largest concentration of wild elephants in East Africa. During the dry season (June to October), the Tarangire River serves as the only water source for miles, drawing herds of up to 300 elephants, alongside migratory zebras, wildebeests, and stalking lions.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Tarangire Safaris</a>
+          </div>
+        </article>
+
+        <!-- Park 5: Masai Mara -->
+        <article class="park-article-card" data-region="other">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Other Places</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/serengeti_wildlife.png" alt="Wildebeest migration crossing in Masai Mara">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Masai Mara National Reserve</h3>
+              <p class="park-card-desc">Located just across the border in southwestern Kenya, the Masai Mara borders the Serengeti to form a continuous wildlife ecosystem. Renowned for its exceptional population of big cats and the dramatic Mara River crossing during the Great Migration, it offers a legendary safari experience on classic acacia-dotted hills.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Kenya Safaris</a>
+          </div>
+        </article>
+
+        <!-- Park 6: Mikumi -->
+        <article class="park-article-card" data-region="southern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Southern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/safari_couple.png" alt="Giraffes in Mikumi National Park">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Mikumi National Park</h3>
+              <p class="park-card-desc">Tanzania’s fourth-largest park, Mikumi offers open horizons and rich wildlife that draw frequent comparisons to the Serengeti. The Mkata floodplains are a highlight, harboring herds of elands (Africa's largest antelope), buffalos, zebra, elephants, wild dogs, and tree-climbing lions looking down from baobab branches.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Southern Safaris</a>
+          </div>
+        </article>
+
+        <!-- Park 7: Saadani -->
+        <article class="park-article-card" data-region="eastern">
+          <div class="park-card-img-wrap">
+            <span class="park-badge">Eastern Parks</span>
+            <button class="park-wishlist-btn" title="Add to Wishlist">&#9825;</button>
+            <img src="images/zanzibar_beach.png" alt="Beach safari in Saadani National Park">
+          </div>
+          <div class="park-card-content">
+            <div>
+              <h3 class="park-card-title">Saadani National Park</h3>
+              <p class="park-card-desc">Saadani is a unique sanctuary—the only national park in East Africa that borders the warm waters of the Indian Ocean. It allows travelers to track big game like elephants, lions, and giraffes in the morning, and spend the afternoon relaxing on pristine white beaches under coconut palms listening to breaking waves.</p>
+            </div>
+            <a href="tours.html" class="btn btn-red park-card-btn">View Saadani Safaris</a>
+          </div>
+        </article>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- 6. BOTTOM DOUBLE-ROW HIGHLIGHTS -->
+  <section class="bottom-highlights-wrap">
+    
+    <!-- Row 1 -->
+    <div class="highlight-row">
+      <div class="highlight-text-col bg-green">
+        <h3>Let us create your tailor-made trip</h3>
+        <h4>Receive a free, no obligation proposal</h4>
+        <p>Our travel designers work with you to customize every aspect of your journey. Build your perfect safari, select your preferred hotels, and adjust timings to suit your pace.</p>
+        <a href="contact.html" class="btn btn-yellow" style="max-width: 320px; margin: 0 auto;">Start planning your dream trip</a>
+      </div>
+      <div class="highlight-img-col">
+        <img src="images/guide_expert.png" alt="Safari guide pointing out wildlife to guests">
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="highlight-row">
+      <div class="highlight-text-col bg-sand">
+        <img src="images/team_expert_avatar.png" alt="Lilian Temu - Lead Safari Specialist" class="expert-avatar-large">
+        <h3>Call an expert</h3>
+        <h4>Our specialists are here to assist you</h4>
+        <div class="phone-buttons-group">
+          <a href="tel:+15186341139" class="phone-btn">
+            <span class="flag-icon flag-usa"></span>
+            <span>USA: +1 518 634 1139</span>
+          </a>
+          <a href="tel:+442038084213" class="phone-btn">
+            <span class="flag-icon flag-gb"></span>
+            <span>UK: +44 20 3808 4213</span>
+          </a>
+        </div>
+        <a class="mt-4" href="contact.html" style="font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--logo-dark-green); text-decoration: underline;">other countries</a>
+      </div>
+      <div class="highlight-img-col">
+        <img src="images/serengeti_wildlife.png" alt="Serengeti wildlife scenic landscape">
+      </div>
+    </div>
+
+  </section>
+
+  
+
+
+  <!-- 7. MAIN FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-trust-band">
+      <div class="container">
+        <a href="tours.html" class="trust-band-title">
+          <span>Our Nomads Recommend African Nomad Safari</span>
+          <span class="trust-band-arrow">&#8594;</span>
+        </a>
+        <div class="trust-ratings">
+          <div class="trust-rating-item">
+            <div class="trust-rating-icon">
+              <!-- TripAdvisor badge -->
+              <span style="font-weight: 900; font-size: 1.1rem;">TA</span>
+            </div>
+            <div class="trust-rating-info">
+              <h5>4.9/5 stars</h5>
+              <p>Based on 4,552+ reviews</p>
+            </div>
+          </div>
+          <div class="trust-rating-item">
+            <div class="trust-rating-icon">
+              <!-- Google icon -->
+              <span style="font-weight: 900; font-size: 1.1rem;">G</span>
+            </div>
+            <div class="trust-rating-info">
+              <h5>4.8/5 stars</h5>
+              <p>Based on 1,143+ reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-content">
+      <div class="container">
+        <div class="footer-grid">
+          
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="images/logo.jpeg" alt="African Nomad Safari Logo">
+            </div>
+            <a href="tel:+15186341139" class="footer-phone">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+1 518 634 1139</span>
+            </a>
+            <div class="footer-certifications">
+              <div style="background-color: #ffffff; padding: 4px 8px; border-radius: 4px; font-weight: 900; font-size: 0.8rem; color: #1e3a8a; border: 1px solid #1e3a8a;">SGR</div>
+              <div style="background-color: #ffffff; padding: 4px 8px; border-radius: 4px; font-weight: 900; font-size: 0.8rem; color: #dc2626; border: 1px solid #dc2626;">ANVR</div>
+              <div style="background-color: #ffffff; padding: 4px 8px; border-radius: 4px; font-weight: 900; font-size: 0.7rem; color: #15803d; border: 1px solid #15803d;">TRAVELIFE</div>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Itineraries</h3>
+            <ul class="footer-links">
+              <li><a href="tours.html">Tanzania Safari Tours</a></li>
+              <li><a href="tours.html">Kenya Explorer Safaris</a></li>
+              <li><a href="tours.html">Zanzibar Island Beach</a></li>
+              <li><a href="tours.html">Safari + Beach Combined</a></li>
+              <li><a href="tours.html">Kilimanjaro Trekking</a></li>
+              <li><a href="tours.html">Luxury Honeymoon Trips</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Travel Info</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">Safari Packing List</a></li>
+              <li><a href="about.html">Best Time to Visit Africa</a></li>
+              <li><a href="about.html">Visa Requirements</a></li>
+              <li><a href="about.html">Yellow Fever Vaccinations</a></li>
+              <li><a href="about.html">Travel Safety Advice</a></li>
+              <li><a href="about.html">Frequently Asked Questions</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <div class="newsletter-form">
+              <p>Get travel ideas, destination guides, and special safari offers straight to your inbox.</p>
+              <div class="newsletter-fields">
+                <input type="text" class="newsletter-input" placeholder="Your name" required id="news-name">
+                <input type="email" class="newsletter-input" placeholder="Your e-mail" required id="news-email">
+                <button type="button" class="newsletter-btn" id="news-submit-btn">Sign Up</button>
+              </div>
+              <p class="newsletter-notice">By signing up, you agree to our <a href="about.html">privacy policy</a>.</p>
+            </div>
+            <div class="social-links" style="margin-top: 1.5rem; display: flex; gap: 0.8rem;">
+              <span class="social-icon" style="background-color: var(--color-yellow); color: var(--logo-dark-green); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; cursor: pointer;">YT</span>
+              <span class="social-icon" style="background-color: var(--color-yellow); color: var(--logo-dark-green); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; cursor: pointer;">TA</span>
+              <span class="social-icon" style="background-color: var(--color-yellow); color: var(--logo-dark-green); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; cursor: pointer;">G+</span>
+              <span class="social-icon" style="background-color: var(--color-yellow); color: var(--logo-dark-green); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; cursor: pointer;">IG</span>
+              <span class="social-icon" style="background-color: var(--color-yellow); color: var(--logo-dark-green); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; cursor: pointer;">FB</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        <p>&copy; 2026 African Nomad Safari B.V. All rights reserved.</p>
+        <div class="copyright-links">
+          <a href="about.html">Terms &amp; Conditions</a>
+          <a href="about.html">Privacy Policy</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a3e3e3a94471a1d4dea3d53/1js1i658b';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  <!-- Scripts -->
+  <script>
+    // 1. MOBILE MENU TOGGLE
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // 2. INTERACTIVE FILTERING LOGIC
+    const filters = document.querySelectorAll('.region-filter');
+    const cards = document.querySelectorAll('.park-article-card');
+
+    function applyFilters() {
+      // Find all checked boxes
+      const checkedRegions = Array.from(filters)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      cards.forEach(card => {
+        const cardRegion = card.getAttribute('data-region');
+        
+        if (checkedRegions.length === 0) {
+          // If nothing is checked, show all cards
+          card.style.display = 'flex';
+          setTimeout(() => { card.style.opacity = '1'; }, 50);
+        } else {
+          // Otherwise, check if card region is in checked values
+          if (checkedRegions.includes(cardRegion)) {
+            card.style.display = 'flex';
+            setTimeout(() => { card.style.opacity = '1'; }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Attach listeners
+    filters.forEach(filter => {
+      filter.addEventListener('change', applyFilters);
+    });
+
+    // Wishlist Toggle Logic
+    const wishlistBtns = document.querySelectorAll('.park-wishlist-btn');
+    wishlistBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.innerHTML === '♥') {
+          btn.innerHTML = '♡';
+          btn.style.color = 'var(--color-charcoal)';
+        } else {
+          btn.innerHTML = '♥';
+          btn.style.color = 'var(--color-red)';
+        }
+      });
+    });
+
+    // Newsletter Submission Logic
+    const newsSubmitBtn = document.getElementById('news-submit-btn');
+    const newsName = document.getElementById('news-name');
+    const newsEmail = document.getElementById('news-email');
+    const newsletterForm = document.querySelector('.newsletter-form');
+
+    newsSubmitBtn.addEventListener('click', () => {
+      if (newsName.value.trim() !== '' && newsEmail.value.trim() !== '') {
+        const name = newsName.value;
+        newsletterForm.innerHTML = `
+          <div style="background-color: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; border: 1px dashed rgba(255,255,255,0.3);">
+            <h4 style="color: var(--color-yellow); margin-bottom: 0.5rem; font-family: var(--font-serif); font-size: 1.2rem;">Asante Sana, ${name}!</h4>
+            <p style="font-size: 0.85rem; margin: 0; line-height: 1.4;">Thank you for subscribing. You've been successfully signed up for our newsletter.</p>
+          </div>
+        `;
+      } else {
+        alert('Please fill out both name and email fields to subscribe.');
+      }
+    });
+  </script>
+</body>
+</html>
