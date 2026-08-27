@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error - African Nomad Safari Blog</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1 class="logo">
+            <i class="fas fa-safari"></i> African Nomad Safari Blog
+          </h1>
+        </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link">Home</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <i class="fas fa-exclamation-circle" style="font-size: 4rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+        <h1 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
+          <%= message || 'Something went wrong' %>
+        </h1>
+        <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">
+          We couldn't find what you're looking for. Please try again or return to the home page.
+        </p>
+        <a href="/" class="btn-primary" style="font-size: 1rem; padding: 0.75rem 2rem;">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top: 4rem;">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2024 African Nomad Safari. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

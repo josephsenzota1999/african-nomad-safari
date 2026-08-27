@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= blog.title %> - African Nomad Safari Blog</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1 class="logo">
+            <i class="fas fa-safari"></i> African Nomad Safari Blog
+          </h1>
+        </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/#featured" class="nav-link">Featured</a>
+          <a href="/#all-blogs" class="nav-link active">All Posts</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Blog Detail Hero -->
+    <section class="blog-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('<%= blog.image %>');">
+      <div class="container">
+        <a href="/" class="breadcrumb">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <div class="blog-hero-content">
+          <span class="category-badge-large"><%= blog.category %></span>
+          <h1><%= blog.title %></h1>
+          <div class="blog-meta">
+            <span><i class="fas fa-user"></i> <%= blog.author %></span>
+            <span><i class="fas fa-calendar"></i> <%= blog.createdAt.toLocaleDateString() %></span>
+            <span><i class="fas fa-clock"></i> <%= blog.readTime %> min read</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container blog-container">
+      <div class="blog-layout">
+        <!-- Main Content -->
+        <article class="blog-content">
+          <!-- Trip Overview -->
+          <section class="overview-section">
+            <h2>Trip Overview</h2>
+            <div class="overview-grid">
+              <div class="overview-box">
+                <h3><i class="fas fa-hourglass"></i> Duration</h3>
+                <p><%= blog.duration %></p>
+              </div>
+              <div class="overview-box">
+                <h3><i class="fas fa-map"></i> Destinations</h3>
+                <p><%= blog.destinations %></p>
+              </div>
+              <div class="overview-box">
+                <h3><i class="fas fa-info-circle"></i> Trip Type</h3>
+                <p><%= blog.type %></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Introduction -->
+          <section class="intro-section">
+            <h2>About This Journey</h2>
+            <p class="intro-text"><%= blog.intro %></p>
+          </section>
+
+          <!-- Best For -->
+          <section class="best-for-section">
+            <div class="side-by-side">
+              <div class="section-box">
+                <h3><i class="fas fa-heart"></i> Best For</h3>
+                <p><%= blog.best_for %></p>
+              </div>
+              <div class="section-box">
+                <h3><i class="fas fa-star"></i> Highlights</h3>
+                <p><%= blog.highlights %></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Detailed Content -->
+          <section class="detailed-content">
+            <h2>Detailed Itinerary</h2>
+            <div class="content-text">
+              <%= blog.content %>
+            </div>
+          </section>
+
+          <!-- Why Choose Section -->
+          <section class="why-choose">
+            <h2>Why Choose This Itinerary?</h2>
+            <div class="reasons-grid">
+              <div class="reason-card">
+                <i class="fas fa-camera"></i>
+                <h3>Professional Guides</h3>
+                <p>Expert naturalists with years of African experience</p>
+              </div>
+              <div class="reason-card">
+                <i class="fas fa-bed"></i>
+                <h3>Quality Accommodations</h3>
+                <p>Handpicked lodges offering comfort and authentic experiences</p>
+              </div>
+              <div class="reason-card">
+                <i class="fas fa-route"></i>
+                <h3>Flexible Itineraries</h3>
+                <p>Customizable schedules to match your preferences</p>
+              </div>
+              <div class="reason-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Culinary Experiences</h3>
+                <p>Authentic local cuisine and international dining options</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- CTA Section -->
+          <section class="cta-section">
+            <div class="cta-box">
+              <h2>Ready to Book Your Adventure?</h2>
+              <p>Contact our travel consultants to customize this itinerary for your perfect getaway</p>
+              <div class="cta-buttons">
+                <button class="btn-primary" onclick="handleBooking()">Book This Trip</button>
+                <button class="btn-secondary" onclick="handleInquiry()">Request Information</button>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar">
+          <!-- Quick Book Card -->
+          <div class="sidebar-card">
+            <h3>Quick Details</h3>
+            <div class="detail-item">
+              <span class="label">Duration:</span>
+              <span class="value"><%= blog.duration %></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Best Time:</span>
+              <span class="value">June - October</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Difficulty:</span>
+              <span class="value">Moderate</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Group Size:</span>
+              <span class="value">2-12 People</span>
+            </div>
+            <button class="btn-primary full-width" onclick="handleBooking()">
+              <i class="fas fa-check"></i> Book Now
+            </button>
+          </div>
+
+          <!-- Share Section -->
+          <div class="sidebar-card">
+            <h3>Share This</h3>
+            <div class="share-buttons">
+              <a href="https://facebook.com" target="_blank" title="Share on Facebook" class="share-btn">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" title="Share on Twitter" class="share-btn">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com" target="_blank" title="Share on Instagram" class="share-btn">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="mailto:?subject=<%= blog.title %>" class="share-btn" title="Share via Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Similar Posts -->
+          <div class="sidebar-card">
+            <h3>Similar Experiences</h3>
+            <div class="similar-posts">
+              <p class="placeholder">More experiences from this category coming soon</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Related Posts Section -->
+    <section class="related-posts">
+      <div class="container">
+        <h2>More African Adventures</h2>
+        <p>Explore other amazing itineraries we offer</p>
+        <div class="related-grid">
+          <div class="related-card">
+            <div class="card-image" style="background-image: url('images/safari-group.jpg');"></div>
+            <h3>Group Safari Adventures</h3>
+            <p>Join other travelers for unforgettable shared experiences</p>
+            <a href="/">Explore Group Tours</a>
+          </div>
+          <div class="related-card">
+            <div class="card-image" style="background-image: url('images/kilimanjaro.jpg');"></div>
+            <h3>Kilimanjaro Treks</h3>
+            <p>Climb Africa's highest peak with expert guides</p>
+            <a href="/">View Trek Options</a>
+          </div>
+          <div class="related-card">
+            <div class="card-image" style="background-image: url('images/zanzibar-beach.jpg');"></div>
+            <h3>Beach Escapes</h3>
+            <p>Relax on pristine beaches after your safari adventure</p>
+            <a href="/">See Beach Packages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>African Nomad Safari</h4>
+          <p>Your gateway to unforgettable African adventures</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#all-blogs">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 African Nomad Safari. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleBooking() {
+      alert('Redirecting to booking page for: <%= blog.title %>');
+      // Redirect to booking system
+      // window.location.href = '/book';
+    }
+
+    function handleInquiry() {
+      alert('Please fill out the inquiry form for more details about this trip.');
+      // Could show a modal form or redirect
+    }
+  </script>
+</body>
+</html>

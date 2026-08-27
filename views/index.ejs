@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>African Nomad Safari - Blog</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <h1 class="logo">
+            <i class="fas fa-safari"></i> African Nomad Safari Blog
+          </h1>
+        </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="#featured" class="nav-link">Featured</a>
+          <a href="#all-blogs" class="nav-link">All Posts</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Tanzania's Wonders</h1>
+        <p>Expert-guided safaris, mountain treks, and island escapes. Read stories from the savanna.</p>
+        <div class="hero-search">
+          <input type="text" id="searchInput" placeholder="Search itineraries..." class="search-box">
+          <button type="button" onclick="searchBlogs()" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <!-- Featured Section -->
+    <section id="featured" class="featured-section">
+      <div class="container">
+        <h2 class="section-title">Featured Experiences</h2>
+        <div class="featured-grid">
+          <% blogs.slice(0, 3).forEach(blog => { %>
+            <article class="featured-card">
+              <div class="card-image" style="background-image: url('<%= blog.image %>');">
+                <span class="category-badge"><%= blog.category %></span>
+              </div>
+              <div class="card-content">
+                <h3><%= blog.title %></h3>
+                <p class="meta-info">
+                  <span><i class="fas fa-calendar"></i> <%= blog.duration %></span>
+                </p>
+                <p class="card-intro"><%= blog.intro.substring(0, 120) %>...</p>
+                <a href="/blog/<%= blog.slug %>" class="read-more">
+                  Read Full Story <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="categories-section">
+      <div class="container">
+        <h2>Explore by Category</h2>
+        <div class="categories-grid">
+          <div class="category-card" onclick="filterByCategory('Safari')">
+            <i class="fas fa-paw"></i>
+            <h3>Safari</h3>
+            <p>Wildlife & Game Drives</p>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Honeymoon')">
+            <i class="fas fa-heart"></i>
+            <h3>Honeymoon</h3>
+            <p>Romantic Getaways</p>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Mountain Trekking')">
+            <i class="fas fa-mountain"></i>
+            <h3>Mountain Trekking</h3>
+            <p>Kilimanjaro Adventures</p>
+          </div>
+          <div class="category-card" onclick="filterByCategory('Extended Safari')">
+            <i class="fas fa-compass"></i>
+            <h3>Extended Trips</h3>
+            <p>Long Adventures</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Blog Posts -->
+    <section id="all-blogs" class="blog-section">
+      <div class="container">
+        <h2 class="section-title">All Blog Posts</h2>
+        <div class="blog-grid">
+          <% blogs.forEach(blog => { %>
+            <article class="blog-card">
+              <div class="card-image" style="background-image: url('<%= blog.image %>');">
+                <span class="category-badge"><%= blog.category %></span>
+              </div>
+              <div class="card-content">
+                <h3><%= blog.title %></h3>
+                <p class="meta-info">
+                  <span><i class="fas fa-calendar"></i> <%= blog.duration %></span>
+                  <span><i class="fas fa-clock"></i> <%= blog.readTime %> min read</span>
+                </p>
+                <p class="card-intro"><%= blog.intro.substring(0, 100) %>...</p>
+                <div class="destinations">
+                  <i class="fas fa-map-pin"></i>
+                  <small><%= blog.destinations %></small>
+                </div>
+                <a href="/blog/<%= blog.slug %>" class="read-more">
+                  View Itinerary <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2>Stay Updated with New Itineraries</h2>
+          <p>Get the latest safari and trekking stories delivered to your inbox</p>
+          <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>African Nomad Safari</h4>
+          <p>Your gateway to unforgettable African adventures</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#all-blogs">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 African Nomad Safari. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function searchBlogs() {
+      const query = document.getElementById('searchInput').value;
+      if (query.trim()) {
+        window.location.href = `/api/blogs?search=${encodeURIComponent(query)}`;
+      }
+    }
+
+    function filterByCategory(category) {
+      window.location.href = `/api/blogs?category=${encodeURIComponent(category)}`;
+    }
+
+    function handleNewsletterSignup(event) {
+      event.preventDefault();
+      alert('Thank you for subscribing! Check your email for confirmation.');
+      event.target.reset();
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') searchBlogs();
+    });
+  </script>
+</body>
+</html>
