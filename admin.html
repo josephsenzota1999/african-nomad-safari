@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Admin | African Nomad Safari</title>
+  <style>
+    :root { --green: #444b3f; --sage: #6e7667; --red: #bf5a37; --paper: #f7f6f4; --white: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--green); font: 16px/1.5 Arial, sans-serif; }
+    header { background: var(--green); color: var(--white); padding: 1.25rem max(1.25rem, calc((100% - 1100px) / 2)); display: flex; justify-content: space-between; align-items: center; }
+    h1, h2 { margin: 0; font-family: Georgia, serif; }
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; }
+    .panel { background: var(--white); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 18px #444b3f18; }
+    .login-panel { max-width: 430px; margin: 5rem auto; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    label { display: grid; gap: .35rem; font-weight: 700; color: var(--sage); }
+    input, textarea, select { width: 100%; border: 1px solid #c9cec7; padding: .75rem; font: inherit; color: var(--green); background: var(--white); }
+    textarea { min-height: 130px; resize: vertical; }
+    .wide { grid-column: 1 / -1; }
+    button { border: 0; background: var(--red); color: var(--white); padding: .75rem 1.1rem; cursor: pointer; font-weight: 700; }
+    button.secondary { background: var(--sage); }
+    button.danger { background: #8d3021; }
+    .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+    #message { margin: 1rem 0; font-weight: 700; }
+    .post-list { display: grid; gap: .6rem; }
+    .post-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; border-bottom: 1px solid #e1e4df; padding: .75rem 0; }
+    .post-row small { color: var(--sage); }
+    .hidden { display: none !important; }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } .post-row { align-items: flex-start; flex-direction: column; } }
+  </style>
+<style>.reputation-links{display:flex;align-items:center;gap:8px;margin-left:12px}.reputation-link{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:inherit;text-decoration:none;background:rgba(255,255,255,.12);transition:transform .2s ease,background .2s ease}.reputation-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.25)}.reputation-link svg{width:16px;height:16px;fill:currentColor}</style></head>
+<body>
+  <header><h1>Blog Admin</h1><button id="logout" class="secondary hidden">Log out</button></header>
+  <main>
+    <section id="login-panel" class="panel login-panel">
+      <h2>Sign in</h2>
+      <p>Use the admin credentials configured in the server's <code>.env</code> file.</p>
+      <form id="login-form">
+        <label>Username<input name="username" autocomplete="username" required></label><br>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <div class="actions"><button type="submit">Sign in</button></div>
+      </form>
+    </section>
+
+    <section id="admin-panel" class="hidden">
+      <div class="panel">
+        <h2 id="form-heading">Publish an article</h2>
+        <form id="post-form">
+          <div class="grid">
+            <label>Title<input name="title" required></label>
+            <label>Slug<input name="slug" placeholder="Generated from title"></label>
+            <label>Category<select name="category"><option>Safari</option><option>Destination</option><option>Honeymoon</option><option>Trekking</option></select></label>
+            <label>Location<input name="destinations" placeholder="Serengeti, Tanzania"></label>
+            <label>Author<input name="author" value="African Nomad Safari"></label>
+            <label>Read time (minutes)<input name="readTime" type="number" min="1" value="5"></label>
+            <label class="wide">Article images<input name="imageFiles" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple><small>Choose up to 10 images. Maximum 8 MB each.</small></label>
+            <div id="current-images" class="wide"></div>
+            <label>Featured<select name="featured"><option value="false">No</option><option value="true">Yes</option></select></label>
+            <label class="wide">Introduction<textarea name="intro" required></textarea></label>
+            <label class="wide">Article content<textarea name="content" required></textarea></label>
+            <label>Audience<textarea name="best_for" placeholder="Who will find this article useful?"></textarea></label>
+            <label>Key takeaways<textarea name="highlights"></textarea></label>
+          </div>
+          <div class="actions"><button type="submit">Publish article</button><button type="button" id="cancel-edit" class="secondary hidden">Cancel edit</button></div>
+        </form>
+        <div id="message"></div>
+      </div>
+      <div class="panel"><h2>Published articles</h2><div id="post-list" class="post-list"></div></div>
+    </section>
+  </main>
+  <script>
+    const loginPanel = document.getElementById('login-panel');
+    const adminPanel = document.getElementById('admin-panel');
+    const loginForm = document.getElementById('login-form');
+    const postForm = document.getElementById('post-form');
+    const message = document.getElementById('message');
+    const logout = document.getElementById('logout');
+    const cancelEdit = document.getElementById('cancel-edit');
+    let editingSlug = null;
+
+    async function request(url, options = {}) {
+      const headers = { ...(options.headers || {}) };
+      if (!(options.body instanceof FormData)) headers['Content-Type'] = 'application/json';
+      const response = await fetch(url, { ...options, headers });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Request failed');
+      return data;
+    }
+
+    function showAdmin() { loginPanel.classList.add('hidden'); adminPanel.classList.remove('hidden'); logout.classList.remove('hidden'); loadPosts(); }
+    function showMessage(text, error = false) { message.textContent = text; message.style.color = error ? '#8d3021' : '#444b3f'; }
+    function resetForm() { postForm.reset(); postForm.author.value = 'African Nomad Safari'; postForm.readTime.value = 5; editingSlug = null; editingImages = []; document.getElementById('current-images').textContent = ''; document.getElementById('form-heading').textContent = 'Publish an article'; postForm.querySelector('button[type="submit"]').textContent = 'Publish article'; cancelEdit.classList.add('hidden'); }
+
+    loginForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(loginForm));
+      try { await request('/api/auth/login', { method: 'POST', body: JSON.stringify(values) }); showAdmin(); }
+      catch (error) { showMessage(error.message, true); }
+    });
+
+    postForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(postForm));
+      values.featured = values.featured === 'true';
+      try {
+        const files = document.querySelector('input[name="imageFiles"]').files;
+        if (files.length) {
+          const uploadData = new FormData();
+          for (const file of files) uploadData.append('images', file);
+          const uploaded = await request('/api/uploads', { method: 'POST', body: uploadData });
+          values.images = uploaded.images;
+        } else if (editingSlug) {
+          values.images = editingImages;
+        }
+        await request(editingSlug ? `/api/blogs/${encodeURIComponent(editingSlug)}` : '/api/blogs', { method: editingSlug ? 'PUT' : 'POST', body: JSON.stringify(values) });
+        showMessage(editingSlug ? 'Article updated.' : 'Article published.'); resetForm(); loadPosts();
+      } catch (error) { showMessage(error.message, true); }
+    });
+
+    async function loadPosts() {
+      try {
+        const result = await request('/api/blogs?limit=100');
+        document.getElementById('post-list').innerHTML = result.data.map(post => `<div class="post-row"><div><strong>${escapeHtml(post.title)}</strong><br><small>${escapeHtml(post.category || '')} · ${escapeHtml(post.slug)}</small></div><div class="actions"><button class="secondary" onclick="editPost('${encodeURIComponent(post.slug)}')">Edit</button><button class="danger" onclick="deletePost('${encodeURIComponent(post.slug)}')">Delete</button></div></div>`).join('') || '<p>No articles yet.</p>';
+      } catch (error) { showMessage(error.message, true); }
+    }
+
+    let editingImages = [];
+    async function editPost(encodedSlug) {
+      try { const result = await request(`/api/blogs/${encodedSlug}`); const post = result.data; editingSlug = post.slug; editingImages = post.images || (post.image ? [post.image] : []); for (const [key, value] of Object.entries(post)) if (postForm.elements[key] && key !== 'image' && key !== 'images') postForm.elements[key].value = key === 'featured' ? String(value) : value || ''; document.getElementById('current-images').textContent = editingImages.length ? `Current images: ${editingImages.length}. Choose new files to replace them.` : ''; document.getElementById('form-heading').textContent = 'Edit article'; postForm.querySelector('button[type="submit"]').textContent = 'Save changes'; cancelEdit.classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      catch (error) { showMessage(error.message, true); }
+    }
+
+    async function deletePost(encodedSlug) { if (!confirm('Delete this article?')) return; try { await request(`/api/blogs/${encodedSlug}`, { method: 'DELETE' }); showMessage('Article deleted.'); loadPosts(); } catch (error) { showMessage(error.message, true); } }
+    function escapeHtml(value) { return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[character]); }
+    cancelEdit.addEventListener('click', resetForm);
+    logout.addEventListener('click', async () => { await request('/api/auth/logout', { method: 'POST' }); location.reload(); });
+    request('/api/auth/session').then(showAdmin).catch(() => {});
+  </script>
+<a class="site-whatsapp-link" href="https://wa.me/255668313179?text=Hello%20African%20Nomad%20Safari" target="_blank" rel="noopener" aria-label="Chat with African Nomad Safari on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.55 0 .24 5.31.24 11.84c0 2.09.55 4.13 1.6 5.93L.14 24l6.38-1.67a11.82 11.82 0 0 0 5.56 1.41h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.17-1.23-6.14-3.41-8.42ZM12.09 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.18 6.41 6.62 1.97 12.08 1.97c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.81-9.9 9.81Zm5.4-7.36c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>WhatsApp</span></a><style>.site-whatsapp-link{position:fixed;right:22px;bottom:22px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:#25d366;color:#fff;font:700 14px/1 Arial,sans-serif;text-decoration:none;box-shadow:0 5px 18px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease}.site-whatsapp-link:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.28)}.site-whatsapp-link svg{width:22px;height:22px;fill:currentColor}.site-whatsapp-link span{white-space:nowrap}@media(max-width:480px){.site-whatsapp-link{right:14px;bottom:14px;padding:12px;border-radius:50%}.site-whatsapp-link span{display:none}}</style></body>
+</html>
