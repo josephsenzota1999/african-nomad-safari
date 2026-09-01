@@ -937,11 +937,13 @@ body {
   }
 
   .nav-menu {
-    display: none;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    font-size: 0.85rem;
   }
 
   .logo {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .section-title {
@@ -961,3 +963,4 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
