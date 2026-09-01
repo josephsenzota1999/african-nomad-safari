@@ -100,17 +100,85 @@
           <div class="sidebar-price"><h4>Tour Price</h4><div class="price-amount">From $2,390 <small>/ person</small></div></div>
           <form class="inquiry-form-fields" action="contact.html" method="GET">
             <input type="hidden" name="itinerary" value="6-days-kilimanjaro-trek-marangu">
-            <div><label class="sidebar-label" for="side-name">Full Name</label><input type="text" class="sidebar-input" id="side-name" required placeholder="John Doe"></div>
-            <div><label class="sidebar-label" for="side-email">E-mail Address</label><input type="email" class="sidebar-input" id="side-email" required placeholder="john@example.com"></div>
-            <div><label class="sidebar-label" for="side-date">Target Date</label><input type="month" class="sidebar-input" id="side-date" required></div>
-            <div><label class="sidebar-label" for="side-travelers">Travelers Count</label><select class="sidebar-input" id="side-travelers"><option value="1">1 Person</option><option value="2" selected>2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5+">5+ People</option></select></div>
+            <div><label class="sidebar-label" for="side-name">Full Name</label><input type="text" class="sidebar-input" id="side-name" name="name" required placeholder="John Doe"></div>
+            <div><label class="sidebar-label" for="side-email">E-mail Address</label><input type="email" class="sidebar-input" id="side-email" name="email" required placeholder="john@example.com"></div>
+            <div><label class="sidebar-label" for="side-date">Target Date</label><input type="month" class="sidebar-input" id="side-date" name="travel_date" required></div>
+            <div><label class="sidebar-label" for="side-travelers">Travelers Count</label><select class="sidebar-input" id="side-travelers" name="travelers"><option value="1">1 Person</option><option value="2" selected>2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5+">5+ People</option></select></div>
             <button type="submit" class="sidebar-btn">Request Proposal</button>
           </form>
         </div>
       </aside>
     </div>
   </section>
-  <footer class="main-footer">
+    <!-- RELATED ITINERARIES SECTION -->
+  <section class="related-itineraries-section" style="padding: 5rem 0 6rem 0; background-color: var(--color-sand-light); border-top: 1px solid rgba(110, 118, 103, 0.12);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto;">
+        <span style="display: inline-block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-red); margin-bottom: 0.5rem;">Recommended Journeys</span>
+        <h2 style="font-size: 2.25rem; font-weight: 900; color: var(--logo-dark-green); margin-bottom: 0.75rem; text-transform: uppercase;">Related Itineraries</h2>
+        <p style="font-size: 1.05rem; color: var(--logo-sage); font-weight: 500; line-height: 1.6;">You may also like these hand-crafted Tanzania safari and trekking adventures, customizable to your preferred travel dates.</p>
+      </div>
+
+      <div class="tours-grid">
+        <!-- Card: 6 Days Kilimanjaro Machame Route -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $2,290 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="6 Days Kilimanjaro Machame Route">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">6 Days Kilimanjaro Machame Route</h3>
+            <p class="tour-card-desc">One of the most scenic routes to the roof of Africa.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">6 Days Machame Route</h3>
+            <p class="tour-overlay-desc">A classic trek with dramatic landscapes, high acclimatization value and a strong summit success rate.</p>
+            <a href="itinerary-kilimanjaro-machame-6-days.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 8 Days Lemosho Route -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $2,790 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="8 Days Lemosho Route">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">8 Days Lemosho Route</h3>
+            <p class="tour-card-desc">An 8-day Lemosho route climb with excellent acclimatization and scenic summit views.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">8 Days Lemosho Route</h3>
+            <p class="tour-overlay-desc">A balanced 8-day Lemosho summit itinerary with more time for acclimatization and quieter campsites.</p>
+            <a href="itinerary-8-day-lemosho-route-perfect-for-kilimanjaro-summit-adventure.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 6 Days Kilimanjaro Rongai Route -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $1,950 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="6 Days Kilimanjaro Rongai Route">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">6 Days Kilimanjaro Rongai Route</h3>
+            <p class="tour-card-desc">A peaceful 6-day Rongai Route climb with scenic northern views and strong summit support.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">6 Days Kilimanjaro Rongai Route</h3>
+            <p class="tour-overlay-desc">A quiet Rongai route climb with excellent acclimatization, northern scenery, and a clear summit path.</p>
+            <a href="itinerary-6-days-kilimanjaro-rongai-route.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="tours.html" class="btn btn-red" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2.2rem; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px;">
+          <span>Explore All 35+ Itineraries</span>
+          <span style="font-size: 1.1rem; line-height: 1;">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<footer class="main-footer">
     <div class="footer-trust-band">
       <div class="container">
         <a href="tours.html" class="trust-band-title"><span>Our Nomads Recommend Wild African Nomad Safari</span><span class="trust-band-arrow">→</span></a>
@@ -120,5 +188,38 @@
         </div>
       </div>
     </div></footer>
-<a class="site-whatsapp-link" href="https://wa.me/255668313179?text=Hello%20African%20Nomad%20Safari" target="_blank" rel="noopener" aria-label="Chat with African Nomad Safari on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.55 0 .24 5.31.24 11.84c0 2.09.55 4.13 1.6 5.93L.14 24l6.38-1.67a11.82 11.82 0 0 0 5.56 1.41h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.17-1.23-6.14-3.41-8.42ZM12.09 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.18 6.41 6.62 1.97 12.08 1.97c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.81-9.9 9.81Zm5.4-7.36c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>WhatsApp</span></a><style>.site-whatsapp-link{position:fixed;right:22px;bottom:22px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:#25d366;color:#fff;font:700 14px/1 Arial,sans-serif;text-decoration:none;box-shadow:0 5px 18px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease}.site-whatsapp-link:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.28)}.site-whatsapp-link svg{width:22px;height:22px;fill:currentColor}.site-whatsapp-link span{white-space:nowrap}@media(max-width:480px){.site-whatsapp-link{right:14px;bottom:14px;padding:12px;border-radius:50%}.site-whatsapp-link span{display:none}}</style></body>
+<a class="site-whatsapp-link" href="https://wa.me/255668313179?text=Hello%20African%20Nomad%20Safari" target="_blank" rel="noopener" aria-label="Chat with African Nomad Safari on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.55 0 .24 5.31.24 11.84c0 2.09.55 4.13 1.6 5.93L.14 24l6.38-1.67a11.82 11.82 0 0 0 5.56 1.41h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.17-1.23-6.14-3.41-8.42ZM12.09 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.84 9.84 0 0 1-1.51-5.2C2.18 6.41 6.62 1.97 12.08 1.97c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.81-9.9 9.81Zm5.4-7.36c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>WhatsApp</span></a><style>.site-whatsapp-link{position:fixed;right:22px;bottom:22px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:#25d366;color:#fff;font:700 14px/1 Arial,sans-serif;text-decoration:none;box-shadow:0 5px 18px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease}.site-whatsapp-link:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.28)}.site-whatsapp-link svg{width:22px;height:22px;fill:currentColor}.site-whatsapp-link span{white-space:nowrap}@media(max-width:480px){.site-whatsapp-link{right:14px;bottom:14px;padding:12px;border-radius:50%}.site-whatsapp-link span{display:none}}</style>  <script>
+    // Mobile navigation & dropdown toggle
+    (function() {
+      const mobileToggle = document.getElementById("mobile-nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener("click", function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("active");
+        });
+      }
+
+      document.addEventListener("click", function(e) {
+        if (navMenu && navMenu.classList.contains("active") && !navMenu.contains(e.target) && (!mobileToggle || !mobileToggle.contains(e.target))) {
+          navMenu.classList.remove("active");
+        }
+      });
+
+      const navItems = document.querySelectorAll(".nav-item");
+      navItems.forEach(function(item) {
+        const link = item.querySelector(".nav-link");
+        const dropdown = item.querySelector(".dropdown-menu");
+        if (dropdown && link) {
+          link.addEventListener("click", function(e) {
+            if (window.innerWidth <= 1023) {
+              e.preventDefault();
+              item.classList.toggle("active");
+            }
+          });
+        }
+      });
+    })();
+  </script>
+</body>
 </html>

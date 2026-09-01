@@ -100,17 +100,85 @@
           <div class="sidebar-price"><h4>Tour Price</h4><div class="price-amount">From $2,390 <small>/ person</small></div></div>
           <form class="inquiry-form-fields" action="contact.html" method="GET">
             <input type="hidden" name="itinerary" value="6-day-marangu-route-kilimanjaro">
-            <div><label class="sidebar-label" for="side-name">Full Name</label><input type="text" class="sidebar-input" id="side-name" required placeholder="John Doe"></div>
-            <div><label class="sidebar-label" for="side-email">E-mail Address</label><input type="email" class="sidebar-input" id="side-email" required placeholder="john@example.com"></div>
-            <div><label class="sidebar-label" for="side-date">Target Date</label><input type="month" class="sidebar-input" id="side-date" required></div>
-            <div><label class="sidebar-label" for="side-travelers">Travelers Count</label><select class="sidebar-input" id="side-travelers"><option value="1">1 Person</option><option value="2" selected>2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5+">5+ People</option></select></div>
+            <div><label class="sidebar-label" for="side-name">Full Name</label><input type="text" class="sidebar-input" id="side-name" name="name" required placeholder="John Doe"></div>
+            <div><label class="sidebar-label" for="side-email">E-mail Address</label><input type="email" class="sidebar-input" id="side-email" name="email" required placeholder="john@example.com"></div>
+            <div><label class="sidebar-label" for="side-date">Target Date</label><input type="month" class="sidebar-input" id="side-date" name="travel_date" required></div>
+            <div><label class="sidebar-label" for="side-travelers">Travelers Count</label><select class="sidebar-input" id="side-travelers" name="travelers"><option value="1">1 Person</option><option value="2" selected>2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5+">5+ People</option></select></div>
             <button type="submit" class="sidebar-btn">Request Proposal</button>
           </form>
         </div>
       </aside>
     </div>
   </section>
-  <footer class="main-footer">
+    <!-- RELATED ITINERARIES SECTION -->
+  <section class="related-itineraries-section" style="padding: 5rem 0 6rem 0; background-color: var(--color-sand-light); border-top: 1px solid rgba(110, 118, 103, 0.12);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto;">
+        <span style="display: inline-block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-red); margin-bottom: 0.5rem;">Recommended Journeys</span>
+        <h2 style="font-size: 2.25rem; font-weight: 900; color: var(--logo-dark-green); margin-bottom: 0.75rem; text-transform: uppercase;">Related Itineraries</h2>
+        <p style="font-size: 1.05rem; color: var(--logo-sage); font-weight: 500; line-height: 1.6;">You may also like these hand-crafted Tanzania safari and trekking adventures, customizable to your preferred travel dates.</p>
+      </div>
+
+      <div class="tours-grid">
+        <!-- Card: 6 Day Machame Route to Kilimanjaro Summit -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $1,650 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="6 Day Machame Route to Kilimanjaro Summit">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">6 Day Machame Route to Kilimanjaro Summit</h3>
+            <p class="tour-card-desc">A 6-day Machame climb with strong summit support and classic acclimatization.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">6 Day Machame Route to Summit</h3>
+            <p class="tour-overlay-desc">A compact Machame itinerary with rainforest, Shira Plateau, Lava Tower, Barranco Wall and summit push included.</p>
+            <a href="itinerary-6-day-machame-route-to-kilimanjaro-summit.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 8 Days Lemosho Route -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $2,790 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="8 Days Lemosho Route">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">8 Days Lemosho Route</h3>
+            <p class="tour-card-desc">An 8-day Lemosho route climb with excellent acclimatization and scenic summit views.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">8 Days Lemosho Route</h3>
+            <p class="tour-overlay-desc">A balanced 8-day Lemosho summit itinerary with more time for acclimatization and quieter campsites.</p>
+            <a href="itinerary-8-day-lemosho-route-perfect-for-kilimanjaro-summit-adventure.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 6 Days Kilimanjaro Rongai Route -->
+        <div class="tour-card" data-category="trekking">
+          <span class="tour-price-label">From $1,950 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/kilimanjaro_trek.png" alt="6 Days Kilimanjaro Rongai Route">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">6 Days Kilimanjaro Rongai Route</h3>
+            <p class="tour-card-desc">A peaceful 6-day Rongai Route climb with scenic northern views and strong summit support.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">6 Days Kilimanjaro Rongai Route</h3>
+            <p class="tour-overlay-desc">A quiet Rongai route climb with excellent acclimatization, northern scenery, and a clear summit path.</p>
+            <a href="itinerary-6-days-kilimanjaro-rongai-route.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="tours.html" class="btn btn-red" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2.2rem; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px;">
+          <span>Explore All 35+ Itineraries</span>
+          <span style="font-size: 1.1rem; line-height: 1;">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<footer class="main-footer">
     <div class="footer-trust-band">
       <div class="container">
         <a href="tours.html" class="trust-band-title"><span>Our Nomads Recommend Wild African Nomad Safari</span><span class="trust-band-arrow">&#8594;</span></a>

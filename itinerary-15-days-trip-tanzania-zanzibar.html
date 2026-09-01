@@ -173,12 +173,13 @@
       <aside>
         <div class="sidebar-card">
           <div class="sidebar-price"><h4>Tour Price</h4><div class="price-amount">From $2,988 <small>/ person</small></div></div>
-          <form action="contact.html" method="GET">
+          <form class="inquiry-form-fields" action="contact.html" method="GET">
             <input type="hidden" name="itinerary" value="15-days-tanzania-zanzibar">
-            <label class="sidebar-label" for="name">Full Name</label><input class="sidebar-input" id="name" type="text" required>
-            <label class="sidebar-label" for="email">Email Address</label><input class="sidebar-input" id="email" type="email" required>
-            <label class="sidebar-label" for="travel-date">Preferred Travel Month</label><input class="sidebar-input" id="travel-date" type="month" required>
-            <button class="sidebar-btn" type="submit">Request Proposal</button>
+            <div><label class="sidebar-label" for="side-name">Full Name</label><input type="text" class="sidebar-input" id="side-name" name="name" required placeholder="John Doe"></div>
+            <div><label class="sidebar-label" for="side-email">E-mail Address</label><input type="email" class="sidebar-input" id="side-email" name="email" required placeholder="john@example.com"></div>
+            <div><label class="sidebar-label" for="side-date">Target Date</label><input type="month" class="sidebar-input" id="side-date" name="travel_date" required></div>
+            <div><label class="sidebar-label" for="side-travelers">Travelers Count</label><select class="sidebar-input" id="side-travelers" name="travelers"><option value="1">1 Person</option><option value="2" selected>2 People</option><option value="3">3 People</option><option value="4">4 People</option><option value="5+">5+ People</option></select></div>
+            <button type="submit" class="sidebar-btn">Request Proposal</button>
           </form>
           <p class="sidebar-note">This sample itinerary can be personalized with upgraded lodges, more safari time, or extra beach nights.</p>
         </div>
@@ -186,7 +187,75 @@
     </div>
   </section>
 
-  <footer class="main-footer">
+    <!-- RELATED ITINERARIES SECTION -->
+  <section class="related-itineraries-section" style="padding: 5rem 0 6rem 0; background-color: var(--color-sand-light); border-top: 1px solid rgba(110, 118, 103, 0.12);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto;">
+        <span style="display: inline-block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-red); margin-bottom: 0.5rem;">Recommended Journeys</span>
+        <h2 style="font-size: 2.25rem; font-weight: 900; color: var(--logo-dark-green); margin-bottom: 0.75rem; text-transform: uppercase;">Related Itineraries</h2>
+        <p style="font-size: 1.05rem; color: var(--logo-sage); font-weight: 500; line-height: 1.6;">You may also like these hand-crafted Tanzania safari and trekking adventures, customizable to your preferred travel dates.</p>
+      </div>
+
+      <div class="tours-grid">
+        <!-- Card: 18 Days Tanzania Safari &amp; Zanzibar Vacation -->
+        <div class="tour-card" data-category="safari-luxury">
+          <span class="tour-price-label">From $5,980 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/serengeti_wildlife.png" alt="18 Days Tanzania Safari &amp; Zanzibar Vacation">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">18 Days Tanzania Safari &amp; Zanzibar Vacation</h3>
+            <p class="tour-card-desc">A deeper exploration of Tanzania’s wildlife paired with a long Zanzibar beach finale.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">18 Days Tanzania Safari &amp; Zanzibar Vacation</h3>
+            <p class="tour-overlay-desc">An extended itinerary for travelers who want a richer, slower-paced safari and beach combination.</p>
+            <a href="itinerary-18-days-tanzania-safari-zanzibar-vacation-wildebeest-migration.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 12 Day Honeymoon Tanzania &amp; Zanzibar -->
+        <div class="tour-card" data-category="safari-luxury">
+          <span class="tour-price-label">From $4,180 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/safari_couple.png" alt="12 Day Honeymoon Tanzania &amp; Zanzibar">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">12 Day Honeymoon Tanzania &amp; Zanzibar</h3>
+            <p class="tour-card-desc">An unforgettable romantic escape blending safari adventure and Zanzibar relaxation.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">12 Day Honeymoon Tanzania &amp; Zanzibar</h3>
+            <p class="tour-overlay-desc">A romantic journey designed for couples seeking luxury, privacy, and beautiful scenery.</p>
+            <a href="itinerary-12-day-honeymoon-tanzania-and-zanzibar.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+
+        <!-- Card: 11 Days Safari Trip Tanzania &amp; Zanzibar -->
+        <div class="tour-card" data-category="safari-luxury">
+          <span class="tour-price-label">From $3,240 <small>USD</small></span>
+          <img class="tour-card-bg" src="images/serengeti_wildlife.png" alt="11 Days Safari Trip Tanzania &amp; Zanzibar">
+          <div class="tour-card-content">
+            <h3 class="tour-card-title">11 Days Safari Trip Tanzania &amp; Zanzibar</h3>
+            <p class="tour-card-desc">A premium mix of wildlife adventure and Zanzibar beach time.</p>
+            <div class="tour-card-arrow">&#8594;</div>
+          </div>
+          <div class="tour-card-overlay">
+            <h3 class="tour-overlay-title">11 Days Safari Trip Tanzania &amp; Zanzibar</h3>
+            <p class="tour-overlay-desc">Blend the northern safari circuit with a relaxing Zanzibar finale in one seamless journey.</p>
+            <a href="itinerary-11-days-safari-trip-tanzania-zanzibar.html" class="tour-overlay-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="tours.html" class="btn btn-red" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2.2rem; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px;">
+          <span>Explore All 35+ Itineraries</span>
+          <span style="font-size: 1.1rem; line-height: 1;">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<footer class="main-footer">
     <div class="footer-trust-band">
       <div class="container">
         <a href="tours.html" class="trust-band-title"><span>Our Nomads Recommend Wild African Nomad Safari</span><span class="trust-band-arrow">&#8594;</span></a>

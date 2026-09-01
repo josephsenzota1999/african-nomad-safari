@@ -2299,3 +2299,748 @@ ul, ol {
     transform: scale(1.1);
     background-color: #128c7e;
   }
+
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN FOR WHOLE WEBSITE
+   ========================================================================== */
+
+/* Global Fluid Base & Responsive Reset */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  word-break: break-word;
+}
+
+input, select, textarea, button {
+  max-width: 100%;
+  font-size: 16px;
+}
+
+button, .btn, .filter-btn, .mobile-nav-toggle, .park-card-btn, .tour-overlay-btn {
+  touch-action: manipulation;
+}
+
+/* 1. Large Tablets and Laptops (1024px to 1200px) */
+@media (max-width: 1200px) {
+  .tours-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  .slide {
+    flex: 0 0 50%;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .about-main-grid {
+    grid-template-columns: 7fr 5fr;
+    gap: 2.5rem;
+  }
+}
+
+/* 2. Tablets & Small Laptops (768px to 1023px) */
+@media (max-width: 1023px) {
+  .top-header {
+    display: none;
+  }
+  
+  .main-header .container {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+  }
+
+  .logo-wrapper img {
+    max-height: 46px;
+    width: auto;
+  }
+  
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--logo-dark-green);
+    border-radius: 4px;
+    user-select: none;
+    z-index: 10001;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    background-color: var(--color-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 0.75rem;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.18);
+    transition: left var(--transition-normal);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 10000;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-item {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(110, 118, 103, 0.1);
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--logo-dark-green);
+  }
+  
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid var(--color-red);
+    padding: 0.4rem 0 0.4rem 1rem;
+    margin-top: 0.25rem;
+    margin-left: 0.5rem;
+    display: none;
+    width: calc(100% - 0.5rem);
+    background-color: var(--color-sand-light);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .nav-item.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-link {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.9rem;
+    display: block;
+    color: var(--color-charcoal);
+  }
+
+  .nav-cta {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .nav-cta .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.85rem 1rem;
+  }
+  
+  /* Hero & Banners */
+  .hero-banner {
+    height: auto;
+    min-height: 520px;
+    padding: 4.5rem 0 3.5rem 0;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.05rem;
+  }
+  
+  .hero-ctas {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .detail-hero, .destination-hero, .ts-jumbotron, .page-banner, .blog-hero, .blog-detail-hero {
+    padding: 5.5rem 0 3.5rem 0;
+  }
+
+  .detail-title, .destination-hero h1, .ts-jumbotron h1, .page-banner h1, .blog-detail-hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+  
+  /* Search Widget */
+  .search-widget {
+    position: static;
+    transform: none;
+    margin: 2rem auto 0 auto;
+    border-radius: 6px;
+    width: 100%;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .search-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid rgba(110, 118, 103, 0.2);
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  .search-btn {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  /* Intro & Grids */
+  .intro-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .intro-image-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tours-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Detail / Itinerary Pages */
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0 3.5rem 0;
+  }
+
+  .sidebar-card {
+    position: static;
+    width: 100%;
+    padding: 1.8rem 1.5rem;
+  }
+
+  /* Destination Pages */
+  .destination-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .destinations-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .park-article-card {
+    flex-direction: column;
+  }
+
+  .park-card-img-wrap {
+    width: 100%;
+    height: 240px;
+  }
+
+  .park-card-content {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .highlight-row {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-row:nth-child(even) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-img-col {
+    height: 280px;
+  }
+
+  .highlight-text-col {
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* About & Contact */
+  .about-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .sidebar-sticky {
+    position: static;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .office-locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .experts-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* 3. Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-banner {
+    min-height: 440px;
+    padding: 3.5rem 0 2.5rem 0;
+  }
+  
+  .hero-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .detail-hero, .destination-hero, .ts-jumbotron, .page-banner, .blog-hero, .blog-detail-hero {
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  .detail-title, .destination-hero h1, .ts-jumbotron h1, .page-banner h1, .blog-detail-hero h1 {
+    font-size: 1.65rem;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .detail-meta {
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .section-header p {
+    font-size: 0.95rem;
+  }
+  
+  .tours-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tour-card {
+    height: 360px;
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+  }
+
+  /* Inclusions & Exclusions Grid on Mobile */
+  .inc-exc-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .destination-facts {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .destination-list {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .blog-featured-card {
+    flex-direction: column;
+  }
+
+  .blog-featured-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Footer Mobile */
+  .footer-trust-band .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .trust-band-title {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .trust-ratings {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-col .footer-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-phone {
+    justify-content: center;
+  }
+
+  .footer-certifications {
+    justify-content: center;
+  }
+
+  .footer-reputation {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-copyright .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .copyright-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .related-itineraries-section {
+    padding: 3.5rem 0 4rem 0 !important;
+  }
+
+  .related-itineraries-section .section-header {
+    margin-bottom: 2rem !important;
+  }
+
+  .related-itineraries-section .section-header h2 {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* 4. Small Mobile Phones (up to 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .hero-banner {
+    min-height: 400px;
+    padding: 3rem 0 2rem 0;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .detail-title, .destination-hero h1, .ts-jumbotron h1, .page-banner h1, .blog-detail-hero h1 {
+    font-size: 1.45rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.55rem;
+  }
+
+  .btn {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .tour-card {
+    height: 330px;
+  }
+
+  .tour-card-title {
+    font-size: 1.15rem;
+  }
+
+  .tour-card-desc {
+    font-size: 0.85rem;
+  }
+
+  .sidebar-card {
+    padding: 1.4rem 1rem;
+  }
+
+  .sidebar-price .price-amount {
+    font-size: 1.75rem;
+  }
+
+  .inc-exc-grid {
+    padding: 1.25rem 0.9rem;
+  }
+
+  .day-item {
+    padding-left: 1.75rem;
+  }
+
+  .day-title {
+    font-size: 0.95rem;
+  }
+
+  .values-grid, .experts-grid-layout, .office-locations-grid, .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-fields {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+  }
+
+  .park-card-img-wrap {
+    height: 190px;
+  }
+
+  .park-card-content {
+    padding: 1.25rem 1rem;
+  }
+
+  .park-card-title {
+    font-size: 1.2rem;
+  }
+
+  .phone-buttons-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .phone-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .site-whatsapp-link {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+
+/* GLOBAL SIDEBAR INQUIRY FORM STYLES */
+.sidebar-card {
+  background-color: var(--color-sand-light);
+  border: 1px solid rgba(110, 118, 103, 0.15);
+  border-radius: 6px;
+  padding: 2rem;
+  position: sticky;
+  top: 100px;
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-price h4 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--logo-sage);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-price .price-amount {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--logo-dark-green);
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--logo-dark-green);
+}
+
+.sidebar-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(110, 118, 103, 0.2);
+  background: #ffffff;
+  font-size: 0.95rem;
+  color: var(--color-charcoal);
+  transition: border-color var(--transition-fast);
+}
+
+.sidebar-input:focus {
+  outline: none;
+  border-color: var(--logo-dark-green);
+}
+
+.inquiry-form-fields div {
+  margin-bottom: 1rem;
+}
+
+.sidebar-btn {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition-fast);
+  margin-top: 1rem;
+  width: 100%;
+  border: none;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.sidebar-btn:hover {
+  background-color: var(--color-red-dark);
+}
+
+.sidebar-note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--logo-sage);
+  font-style: italic;
+}
