@@ -1995,6 +1995,15 @@ ul, ol {
   padding: 1.5rem;
 }
 
+/* Founder cards without a portrait photo */
+.expert-card-no-photo {
+  border-top: 4px solid var(--logo-accent-green);
+}
+
+.expert-card-no-photo .expert-card-info {
+  padding: 2rem 1.5rem;
+}
+
 .expert-card-name {
   font-family: var(--font-serif);
   font-size: 1.25rem;
